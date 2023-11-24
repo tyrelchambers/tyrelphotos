@@ -8,20 +8,24 @@ const camera = "Canon RP";
 const lens = ["EF 50mm", "EF 75-300mm f4-5.6"];
 ---
 
-<header>
-  <h1 class="text-7xl text-slate-700 font-bold">Tyrel Chambers</h1>
-  <p class="text-slate-500 text-xl leading-normal max-w-3xl mt-4 font-thin">
+<header class="p-6">
+  <h1 class="md:text-7xl text-3xl text-slate-700 font-bold">Tyrel Chambers</h1>
+  <p class="text-slate-500 md:text-xl leading-normal max-w-3xl mt-4 font-thin">
     I'm a software developer by trade, but I love to take photos in my spare
     time and when I'm on road trips or hiking.
   </p>
 
-  <div class="flex gap-10 items-center mt-10">
-    <span class="text-slate-500 flex gap-3 items-center tracking-widest">
+  <div class="flex sm:gap-10 gap-2 sm:items-center mt-10 flex-col sm:flex-row">
+    <span
+      class="text-slate-500 text-sm sm:text-base flex gap-3 items-center tracking-widest"
+    >
       <FontAwesomeIcon icon={faCamera} />
       {camera}
     </span>
 
-    <span class="text-slate-500 flex gap-3 items-center tracking-widest">
+    <span
+      class="text-slate-500 text-sm sm:text-base flex gap-3 items-center tracking-widest"
+    >
       <FontAwesomeIcon icon={faAperture} />
       {lens.join(", ")}
     </span>
