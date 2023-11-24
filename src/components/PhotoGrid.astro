@@ -1,0 +1,36 @@
+---
+import { Picture } from "astro:assets";
+const { photos } = Astro.props;
+
+const COLUMNS = 3;
+const PHOTOS_PER_COLUMN = Math.ceil(photos.length / COLUMNS);
+const photoMap = new Map();
+
+for (let i = 0; i < COLUMNS; i++) {
+  photoMap.set(
+    i,
+    photos.slice(i * PHOTOS_PER_COLUMN, (i + 1) * PHOTOS_PER_COLUMN),
+  );
+}
+---
+
+<section
+  class="grid grid-cols-3 gap-10 max-w-screen-2xl mx-auto"
+  style="grid-template-rows: masonry;"
+>
+  {
+    Array.from(photoMap.values()).map((column) => (
+      <div class="flex flex-col gap-10">
+        {column.map((photo: any) => (
+          <Picture
+            src={photo}
+            alt=""
+            widths={[300, 600, 900]}
+            sizes="(max-width: 600px) 100vw, 300px"
+            class="rounded-lg shadow-lg"
+          />
+        ))}
+      </div>
+    ))
+  }
+</section>

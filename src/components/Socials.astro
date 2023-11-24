@@ -1,0 +1,41 @@
+---
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+interface Social {
+  icon: IconProp;
+  name: string;
+  url: string;
+}
+
+const socials: Social[] = [
+  {
+    name: "Instagram",
+    icon: faInstagram,
+    url: "https://www.instagram.com/imtyrelchambers",
+  },
+  {
+    name: "Twitter",
+    icon: faTwitter,
+    url: "https://twitter.com/imtyrelchambers",
+  },
+];
+---
+
+<ul class="flex gap-4 mt-10">
+  {
+    socials.map((social) => (
+      <li>
+        <a
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={social.name}
+          class="text-slate-500 border-dashed border w-10 h-10 rounded-full flex items-center justify-center hover:text-cyan-500 hover:border-cyan-500 border-zinc-700"
+        >
+          <FontAwesomeIcon icon={social.icon} />
+        </a>
+      </li>
+    ))
+  }
+</ul>

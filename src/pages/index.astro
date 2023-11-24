@@ -1,0 +1,20 @@
+---
+import Intro from "../components/Intro.astro";
+import PhotoGrid from "../components/PhotoGrid.astro";
+import Layout from "../layouts/Layout.astro";
+const photos = await Astro.glob("../assets/photos/*").then((files) => {
+  return files.map((file) => file.default);
+});
+---
+
+<Layout title="Tyrel Chambers' Photography">
+  <main>
+    <section
+      class="h-[calc(100vh-100px)] flex items-center max-w-screen-xl mx-auto"
+    >
+      <Intro />
+    </section>
+
+    <PhotoGrid photos={photos} />
+  </main>
+</Layout>
