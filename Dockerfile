@@ -1,7 +1,8 @@
 FROM node:lts AS build
 WORKDIR /app
 COPY . .
-RUN npm i
+ARG FONTAWESOME_NPM_AUTH_TOKEN
+RUN ${FONTAWESOME_NPM_AUTH_TOKEN} npm i
 RUN npm run build
 
 FROM httpd:2.4 AS runtime
